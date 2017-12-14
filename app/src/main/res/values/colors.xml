@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!--常用固定颜色-->
+    <color name="transparent">#00000000</color>
+    <color name="transparency">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff0000</color>
+    <color name="green">#00ff00</color>
+    <color name="blue">#0000ff</color>
+    <color name="qmui_config_color_separator">#DEE0E2</color>
+
+    <!--文字颜色(常用文字颜色及不含特定控件使用颜色放在这儿,顺序:黑红橙黄绿蓝紫灰白,顺序:常用-不常用/遵循 i++)-->
+    <color name="text_black">#222222</color>
+    <color name="text_black3">#323232</color>
+    <color name="text_red">#DB5153</color>
+    <color name="text_red2">#990000</color>
+    <color name="text_black4">#565656</color>
+    <color name="text_black5">#989898</color>
+
+    <color name="app_line_gray">#999999</color>
+    <color name="app_line_gray2">#c3c3c3</color>
+    <color name="app_line_gray4">#f2f2f2</color>
+    <color name="app_line_gray3">#e0e0e0</color>
+    <color name="app_line_gray5">#d0d0d0</color>
+
+
+    <color name="blue_bg">#4eb1e5</color>
+    <color name="text_blue">#3066a9</color>
+    <color name="text_blue1">#3d619d</color>
+    <color name="text_blue2">#6cc3fc</color>
+    <color name="text_blue3">#c3effe</color>
+    <color name="text_blue4">#00ccff</color>
+    <color name="text_blue5">#157efb</color>
+    <color name="text_gray">#989898</color>
+    <color name="text_gray2">#999999</color>
+    <color name="text_gray4">#fdabab</color>\
+    <color name="text_gray5">#cacacf</color>\
+    <color name="text_white">#ffffff</color>
+
+
+    <!--文字颜色(特定控件指定颜色命名 控件简称_text_colorname)-->
+    <color name="button_background_red">#DC5154</color>
+    <color name="blue_dialog">#007aff</color>
+
+
+    <!--背景颜色(无特定控件)-->
+    <color name="bg_red_un">#eda8a9</color>
+    <color name="bg_red">#fa4747</color>
+    <color name="bg_red2">#db5153</color>
+    <color name="bg_gray">#eeeeee</color>
+    <color name="bg_gray2">#f2f2f2</color>
+    <color name="bg_black">#272727</color>
+
+    <!--线的颜色(包括列表分割线)-->
+    <color name="line_gray">#999999</color>
+    <color name="line_gray2">#c3c3c3</color>
+    <color name="line_gray3">#e0e0e0</color>
+    <color name="line_gray4">#d0d0d0</color>
+
+</resources>

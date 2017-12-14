@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 设置自定义Dialog的edittext的边框所用的 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:shape="rectangle" >
+    <solid android:color="#fff"/><!-- 填充白色 -->
+    <!-- 描边框用的是淡淡的黑色 -->
+   <corners android:radius="8px"/>
+</shape>
