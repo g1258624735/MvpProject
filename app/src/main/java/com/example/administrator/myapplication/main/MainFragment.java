@@ -54,7 +54,9 @@ public class MainFragment extends BaseFragment {
                 switch (pos) {
                     case 0:
                         new CommonDialog.Builder(activity).setTitle("标题").setLeftText("取消").setRightText("确定")
-                                .setContent("我是内容").setEnableOneButton(false).setIsShowEditText(true).setEditTextHint("请输入用户密码")
+                                .setContent("我是内容").setEnableOneButton(false).setShowEditText(false).setEditTextHint("请输入用户密码")
+                                .setGravity(CommonDialog.DialogGravityType.GRAVITY_CENTER)
+                                .setAnimationStyle(CommonDialog.DialogAnimationType.DIALOG_ANIMATION_SCALE)
                                 .setOneButtonSureOnClickListener(new CommonDialog.OnCommonClickListener() {
                                     @Override
                                     public void onClick(CommonDialog dialog,String text) {

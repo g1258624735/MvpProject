@@ -35,6 +35,44 @@ public class CommonDialog extends BaseDialog implements View.OnClickListener {
     private String title;
     private String etHint;
     private String desc;
+    private int gravity = DialogGravityType.GRAVITY_CENTER;
+    private int animationStyle = DialogAnimationType.DIALOG_ANIMATION_SCALE;
+
+    /**
+     * 位置显示样式选择
+     */
+    public interface DialogGravityType {
+        /**
+         * dialog 位置显示样式
+         * 底部显示
+         */
+        int GRAVITY_BOTTOM = Gravity.BOTTOM;
+        /**
+         * dialog 中部显示
+         */
+        int GRAVITY_CENTER = Gravity.CENTER;
+        /**
+         * dialog 顶部显示
+         */
+        int GRAVITY_TOP = Gravity.TOP;
+    }
+
+    /**
+     * 位置显示样式选择
+     */
+    public interface DialogAnimationType {
+        /**
+         * dialog 弹出动画
+         * 渐变显示
+         */
+        int DIALOG_ANIMATION_SCALE = R.style.DialogScaleAnimation;
+        /**
+         * dialog 弹出动画
+         * 从底部弹出 动画
+         */
+        int DIALOG_ANIMATION_UP_DOWN = R.style.DataSheetAnimation;
+    }
+
     /**
      * 是否显示一个button
      * 1 -> 只有一个确定按钮
@@ -58,7 +96,7 @@ public class CommonDialog extends BaseDialog implements View.OnClickListener {
 
     @Override
     protected int getAnimations() {
-        return R.style.DialogScaleAnimation;
+        return animationStyle;
     }
 
     @Override
@@ -68,7 +106,7 @@ public class CommonDialog extends BaseDialog implements View.OnClickListener {
 
     @Override
     protected int getGravity() {
-        return Gravity.CENTER;
+        return gravity;
     }
 
     @Override
@@ -177,6 +215,9 @@ public class CommonDialog extends BaseDialog implements View.OnClickListener {
             return this;
         }
 
+        /**
+         * 正文
+         */
         public Builder setContent(String content) {
             dialog.content = content;
             return this;
@@ -184,9 +225,6 @@ public class CommonDialog extends BaseDialog implements View.OnClickListener {
 
         /**
          * 描述文字
-         *
-         * @param desc
-         * @return
          */
         public Builder setDes(String desc) {
             dialog.desc = desc;
@@ -202,9 +240,26 @@ public class CommonDialog extends BaseDialog implements View.OnClickListener {
         }
 
         /**
-         * 是否为输入框模式
+         * 设置dialog 显示屏幕中的位置
          */
-        public Builder setIsShowEditText(boolean isShowEditText) {
+        public Builder setGravity(int gravity) {
+            dialog.gravity = gravity;
+            return this;
+        }
+
+        /**
+         * 设置dialog 弹出动画
+         */
+        public Builder setAnimationStyle(int animationStyle) {
+            dialog.animationStyle = animationStyle;
+            return this;
+        }
+
+        /**
+         * 是否为输入框模式
+         * 输入框模式下会隐藏内容文本
+         */
+        public Builder setShowEditText(boolean isShowEditText) {
             dialog.isShowEditText = isShowEditText;
             return this;
         }
@@ -218,7 +273,7 @@ public class CommonDialog extends BaseDialog implements View.OnClickListener {
         }
 
         /**
-         * 标题
+         * 输入框提示语
          */
         public Builder setEditTextHint(String hint) {
             dialog.etHint = hint;
