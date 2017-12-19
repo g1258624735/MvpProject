@@ -10,10 +10,23 @@
     <com.example.administrator.myapplication.widget.HeadBar
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        app:titleText="首页" />
+        android:background="@color/colorPrimaryDark"
+        app:isBackIconGone="true"
+        app:titleText="首页"
+        app:titleTextColor="@color/white" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line_gray3" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

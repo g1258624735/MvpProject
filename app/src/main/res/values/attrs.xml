@@ -12,5 +12,6 @@
         <attr name="rightTextColor" format="color" />
         <attr name="leftTextSize" format="dimension" />
         <attr name="leftTextColor" format="color" />
+        <attr name="titleTextColor" format="color" />
     </declare-styleable>
 </resources>

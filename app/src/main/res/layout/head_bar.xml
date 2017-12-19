@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl_title"
     android:layout_width="match_parent"
-    android:layout_height="46dp"
-    android:background="@color/white">
+    android:layout_height="46dp">
 
     <Button
         android:id="@+id/btn_include_title_back"
@@ -15,7 +14,6 @@
         android:drawableLeft="@mipmap/icon_back"
         android:drawablePadding="0dp"
         android:gravity="start|center_vertical"
-        android:onClick="backClick"
         android:textSize="14sp" />
 
 
@@ -54,6 +52,6 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/app_line_gray2"/>
+        android:background="@color/app_line_gray2" />
 
 </RelativeLayout>
