@@ -1,7 +1,9 @@
 package com.example.administrator.myapplication.dialog
 
 import android.content.Context
+import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
@@ -21,9 +23,10 @@ import com.example.administrator.myapplication.R
  */
 open class CommonDialog(context: Context) : BaseDialog(context), View.OnClickListener {
     private var tv_title: TextView? = null
-    private var tv_content: TextView? = null
+    private var tvContent: TextView? = null
     private var tv_content_desc: TextView? = null
     private var linear_bottom: LinearLayout? = null
+    private var linear_in_view: LinearLayout? = null
     private var tv_cancel: TextView? = null
     private var tv_sure: TextView? = null
     private var tv_one_sure: TextView? = null
@@ -34,16 +37,14 @@ open class CommonDialog(context: Context) : BaseDialog(context), View.OnClickLis
     private var title: String? = null
     private var etHint: String? = null
     private var desc: String? = null
+    private var view: View? = null//自定义View
+    private var linear_content: LinearLayout? = null//dialog 的主View
+    private var linear_all_bottom: LinearLayout? = null//dialog 的主View
 
     override var gravity = DialogGravityType.GRAVITY_CENTER
-        set(value) {
-            super.gravity = value
-        }
 
     override var animations = DialogAnimationType.DIALOG_ANIMATION_SCALE
-        set(value) {
-            super.animations = value
-        }
+    override var widthStyle = DialogWidthStyle.WIDTH_STYLE_WRAP_CONTENT
 
 
     /**
@@ -65,8 +66,22 @@ open class CommonDialog(context: Context) : BaseDialog(context), View.OnClickLis
     override val layoutId: Int
         get() = R.layout.dialog_common_layout
 
-    override var widthStyle: Int = 0
-        get() = WindowManager.LayoutParams.WRAP_CONTENT
+
+    /**
+     * dialog的宽度样式选择
+     */
+    interface DialogWidthStyle {
+        companion object {
+            /**
+             * dialog 宽度 WRAP_CONTENT
+             */
+            val WIDTH_STYLE_WRAP_CONTENT = WindowManager.LayoutParams.WRAP_CONTENT
+            /**
+             * dialog 宽度 WRAP_CONTENT
+             */
+            val WIDTH_STYLE_MATCH_PARENT = WindowManager.LayoutParams.MATCH_PARENT
+        }
+    }
 
     /**
      * 位置显示样式选择
@@ -107,29 +122,42 @@ open class CommonDialog(context: Context) : BaseDialog(context), View.OnClickLis
         }
     }
 
+
     override fun initView() {
         tv_title = findViewById(R.id.tv_title)
-        tv_content = findViewById(R.id.tv_content)
+        tvContent = findViewById(R.id.tv_content)
         tv_content_desc = findViewById(R.id.tv_content_desc)
-        linear_bottom = findViewById(R.id.ll_container)
         linear_bottom = findViewById(R.id.ll_container)
         tv_cancel = findViewById(R.id.tv_cancel)
         tv_sure = findViewById(R.id.tv_sure)
         tv_one_sure = findViewById(R.id.tv_one_sure)
         et_content = findViewById(R.id.et_content)
+        linear_in_view = findViewById(R.id.linear_in_view)
+        linear_content = findViewById(R.id.linear_content)
+        linear_all_bottom = findViewById(R.id.linear_bottom)
         initUI()
     }
 
+    /**
+     * linear_content 和 linear_in_view 两个View 的显示隐藏是相对的
+     */
     private fun initUI() {
+        linear_content?.visibility = if (view != null) View.GONE else View.VISIBLE
+        linear_all_bottom?.visibility = if (view != null) View.GONE else View.VISIBLE
+        linear_in_view?.visibility = if (view != null) View.VISIBLE else View.GONE
         linear_bottom!!.visibility = if (isShowOneButton) View.GONE else View.VISIBLE
         tv_one_sure!!.visibility = if (isShowOneButton) View.VISIBLE else View.GONE
-        tv_content!!.visibility = if (isShowEditText) View.GONE else View.VISIBLE
+        tvContent!!.visibility = if (isShowEditText) View.GONE else View.VISIBLE
         et_content!!.visibility = if (isShowEditText) View.VISIBLE else View.GONE
+        if (view != null) {
+            linear_in_view?.removeAllViews()
+            linear_in_view?.addView(view, LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT))
+        }
         if (!TextUtils.isEmpty(title)) {
             tv_title!!.text = title
         }
         if (!TextUtils.isEmpty(content)) {
-            tv_content!!.text = content
+            tvContent!!.text = content
         }
         if (!TextUtils.isEmpty(desc)) {
             tv_content_desc!!.text = desc
@@ -241,6 +269,14 @@ open class CommonDialog(context: Context) : BaseDialog(context), View.OnClickLis
         }
 
         /**
+         * 设置dialog 宽度
+         */
+        fun setWidthStyle(widthStyle: Int): Builder {
+            dialog.widthStyle = widthStyle
+            return this
+        }
+
+        /**
          * 是否为输入框模式
          * 输入框模式下会隐藏内容文本
          */
@@ -289,6 +325,14 @@ open class CommonDialog(context: Context) : BaseDialog(context), View.OnClickLis
             return this
         }
 
+        /**
+         * 传入一个自定义布局View
+         * 扩展dialog 的布局样式
+         */
+        fun setView(view: View): Builder {
+            dialog.view = view
+            return this
+        }
 
         /**
          * 返回dialog

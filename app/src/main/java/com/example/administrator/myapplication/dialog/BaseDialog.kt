@@ -15,7 +15,8 @@ import com.example.administrator.myapplication.R
  * dialog 基类
  */
 
-abstract class BaseDialog private constructor(context: Context, themeResId: Int) : Dialog(context, themeResId) {
+abstract class BaseDialog : Dialog {
+     constructor(context: Context, themeResId: Int) : super(context, themeResId)
 
     protected abstract val layoutId: Int
 

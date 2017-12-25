@@ -34,10 +34,11 @@ class MainActivity : BaseFragmentActivity() {
             val fragment = MainFragment()
             supportFragmentManager
                     .beginTransaction()
-                    .add(contextViewId, fragment, fragment.javaClass.getSimpleName())
-                    .addToBackStack(fragment.javaClass.getSimpleName())
+                    .add(contextViewId, fragment, fragment.javaClass.simpleName)
+                    .addToBackStack(fragment.javaClass.simpleName)
                     .commit()
         }
     }
+
 
 }
