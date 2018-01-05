@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/add"
+        android:icon="@drawable/fragment_bottom_navigation_home__selector"
+        android:title="首页" />
+    <item
+        android:id="@+id/delete"
+        android:icon="@drawable/fragment_bottom_navigation_middle__selector"
+        android:title="列表" />
+    <item
+        android:id="@+id/setting"
+        android:icon="@drawable/fragment_bottom_navigation_mine__selector"
+        android:title="我的" />
+</menu>

@@ -82,6 +82,8 @@ class HomeFragment : BaseFragment() {
                 dialog.show()
             }
             4 -> {
+                val fragment = BottomNavigationFragment()
+                startFragment(fragment)
             }
         }
 

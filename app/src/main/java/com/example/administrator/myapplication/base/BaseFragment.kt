@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewCompat
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +27,7 @@ import com.example.administrator.myapplication.utils.QMUIWindowInsetLayout
  * Created by gxj on 15/9/14.
  */
 abstract class BaseFragment : Fragment() {
-    protected lateinit var activity: Activity
+    protected lateinit var activity: AppCompatActivity
     private var mBaseView: View? = null
 
     val baseFragmentActivity: BaseFragmentActivity?
@@ -37,7 +38,7 @@ abstract class BaseFragment : Fragment() {
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        this.activity = (context as Activity)
+        this.activity = (context as AppCompatActivity)
     }
 
     override fun onDetach() {
