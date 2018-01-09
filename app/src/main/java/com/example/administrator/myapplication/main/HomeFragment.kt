@@ -25,8 +25,9 @@ import java.util.regex.Pattern
  * 主页
  */
 class HomeFragment : BaseFragment() {
-    private val list = arrayOf("自定义dialog", "测试fragment跳转", "测试自带AlertDialog",
-            "测试自定义布局CommonDialog", "BottomNavigationFragment底部导航栏")
+    private val list = arrayOf("自定义dialog->0", "测试fragment跳转->1", "测试自带AlertDialog->2",
+            "测试自定义布局CommonDialog->3", "BottomNavigationFragment底部导航栏->4", "测试自定义控件-5",
+            "SnapHelper实现类似ViewPager")
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -83,6 +84,14 @@ class HomeFragment : BaseFragment() {
             }
             4 -> {
                 val fragment = BottomNavigationFragment()
+                startFragment(fragment)
+            }
+            5 -> {
+                val fragment = MyViewFragment()
+                startFragment(fragment)
+            }
+            6 -> {
+                val fragment = SnapHelperFragment()
                 startFragment(fragment)
             }
         }

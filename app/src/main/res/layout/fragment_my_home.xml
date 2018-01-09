@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.myapplication.MainActivity">
+
+    <com.example.administrator.myapplication.widget.HeadBar
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimaryDark"
+        app:isBackIconGone="true"
+        app:titleText="测试自定义View"
+        app:titleTextColor="@color/white" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AppCompatButton" />
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AppCompatCheckBox" />
+
+    <android.support.v7.widget.AppCompatCheckedTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AppCompatCheckBox" />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AppCompatCheckBox" />
+</LinearLayout>

@@ -56,6 +56,10 @@ abstract class BaseRecyclerAdapter<T>(private val mContext: Context, list: Mutab
         mData.add(pos, item)
         notifyItemInserted(pos)
     }
+    fun addAll(items:MutableList<T>) {
+        mData.addAll(items)
+        notifyDataSetChanged()
+    }
 
     fun delete(pos: Int) {
         mData.removeAt(pos)
