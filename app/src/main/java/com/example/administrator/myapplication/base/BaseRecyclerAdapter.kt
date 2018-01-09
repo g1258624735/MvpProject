@@ -40,6 +40,8 @@ abstract class BaseRecyclerAdapter<T>(private val mContext: Context, list: Mutab
         return holder
     }
 
+    fun getData(): MutableList<T> =mData
+
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         bindData(holder, position, mData[position])
     }
@@ -56,7 +58,8 @@ abstract class BaseRecyclerAdapter<T>(private val mContext: Context, list: Mutab
         mData.add(pos, item)
         notifyItemInserted(pos)
     }
-    fun addAll(items:MutableList<T>) {
+
+    fun addAll(items: MutableList<T>) {
         mData.addAll(items)
         notifyDataSetChanged()
     }
